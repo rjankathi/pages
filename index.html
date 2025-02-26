@@ -3,28 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raj Ankathi</title>
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto">
+    <title>My AI Engineer Journey</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            background-color: black;
+            color: #00ff00;
+            overflow: hidden;
+            height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20%;
+            font-size: 3em;
+            text-shadow: 0 0 10px #00ff00;
+            animation: flicker 1s infinite alternate;
+        }
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .matrix {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .matrix div {
+            position: absolute;
+            bottom: 100%;
+            color: #00ff00;
+            white-space: nowrap;
+            font-size: 20px;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+    </style>
 </head>
-<body class="body">
-    <div class="wrapper">
-        <div class="left">
-            <img class="profile-picture" src="assets/img/myself.jfif" alt="">
-            <h1 class="name">Raj Ankathi</h1>
-            <h4>Sr. Software Engineer</h4>
-        </div>
-        <div class="right">
-            <p class="bio">A Senior Software Engineer working in Manhattan Beach, 
-                Thanks for visting my site.
-            </p>
-            <ul class="social-links">
-                <li><a href="https://github.com/rjankathi">Github</a></li>
-                <li><a href="https://www.linkedin.com/in/rajankathi">Linkedin</a></li>
-            </ul>
-        </div>
-    </div>
-   
-  
+<body>
+    <h1>Welcome to My AI Engineer Journey</h1>
+    <div class="matrix" id="matrix"></div>
+
+    <script>
+        const matrix = document.getElementById('matrix');
+        const characters = '0101010101010101010101';//@#$%^&*()_+-=[]{}|;:,.<>?ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        
+        function createCharacter() {
+            const span = document.createElement('div');
+            span.textContent = characters[Math.floor(Math.random() * characters.length)];
+            span.style.left = Math.random() * 100 + 'vw';
+            span.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            span.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            span.style.opacity = Math.random();
+            matrix.appendChild(span);
+            setTimeout(() => {
+                span.remove();
+            }, 3000);
+        }
+
+        setInterval(createCharacter, 50); // Increase frequency of character creation
+
+        // Create multiple characters for a cascading effect
+        setInterval(() => {
+            for (let i = 0; i < 10; i++) {
+                createCharacter();
+            }
+        }, 100); // Increase frequency of character creation
+    </script>
 </body>
 </html>
