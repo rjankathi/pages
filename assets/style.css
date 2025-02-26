@@ -1,0 +1,91 @@
+
+/* Matrix effect styles */
+.matrix {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.matrix div {
+    position: absolute;
+    bottom: 100%;
+    color: #00ff00;
+    white-space: nowrap;
+    font-size: 20px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to { transform: translateY(100vh); }
+}
+
+h1 {
+    text-align: center;
+    margin-top: 15%;
+    font-size: 2.5em;
+    text-shadow: 0 0 10px #00ff00;
+    /* animation: flicker 1s infinite alternate; */
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+body {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    background-color: black;
+    color: #00ff00;
+    overflow: hidden;
+    height: 100vh;
+}
+nav {
+    margin: 1em auto;
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: inline-flex; /* or just use inline-block items */
+    gap: 1.5em;
+    margin: 0;
+    padding: 0;
+}
+
+nav li a {
+    text-decoration: none;
+    color: #00ff00;
+    font-weight: bold;
+}
+
+.sections {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: black;
+    color: #00ff00;
+    padding-top: 5em;
+    display: none;
+}
+
+.sections section {
+    margin: 3em auto;
+    max-width: 900px;
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.sections h2 {
+    margin-top: 0;
+    text-shadow: 0 0 5px #00ff00;
+}

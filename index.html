@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My AI Engineer Journey</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <h1>Welcome to My AI Engineer Journey</h1>
+    <nav>
+        <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="matrix" id="matrix"></div>
+    <div class="sections" id="sections">
+        <section id="projects">
+            <h2>Projects</h2>
+            <p>Showcase your AI projects with descriptions, technologies, and links to GitHub.</p>
+        </section>
+        <section id="achievements">
+            <h2>Achievements</h2>
+            <p>Highlight major milestones, certifications, or awards.</p>
+        </section>
+        <section id="resume">
+            <h2>Resume</h2>
+            <p>Include a summary and a link to a downloadable PDF version of your resume.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <form action="mailto:you@example.com" method="post" enctype="text/plain">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required />
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+            <ul>
+                <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+            </ul>
+        </section>
+    </div>
+    <script>
+        const matrix = document.getElementById('matrix');
+        const characters = '0101010101010101010101@#$%^&*()_+-=[]{}|;:,.<>?ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        
+        function createCharacter() {
+            const span = document.createElement('div');
+            span.textContent = characters[Math.floor(Math.random() * characters.length)];
+            span.style.left = Math.random() * 100 + 'vw';
+            span.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            span.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            span.style.opacity = Math.random();
+            matrix.appendChild(span);
+            setTimeout(() => {
+                span.remove();
+            }, 3000);
+        }
+
+        setInterval(createCharacter, 50);
+
+        setInterval(() => {
+            for (let i = 0; i < 10; i++) {
+                createCharacter();
+            }
+        }, 100);
+    </script>
+</body>
+</html>
